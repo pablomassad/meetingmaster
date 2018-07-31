@@ -1,0 +1,274 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.modal-wrapper {
+  margin: auto;
+  position: absolute;
+  top: 50px;
+  left: 3%;
+  right: 3%;
+  height: 90%;
+}
+
+ion-modal {
+   background: rgba(0, 0, 0, 0.6)
+ }
+
+.headApp {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+}
+
+.loading {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: 2px 2px 3px black;
+  background: lightblue;
+  box-shadow: 4px 4px 6px black;
+  border-radius: 10px;
+}
+
+.btnAddEvent {
+  right: -2px;
+  bottom: -2px;
+}
+
+.eventCard {
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 1px 1px 3px #555;
+  width: auto;
+}
+
+.grdEvent {
+  //background: -webkit-radial-gradient(#fff 28%, #d6d5d5 75%) !important; //   display: grid;
+  //   grid-template-columns: 2fr 2fr 2fr 2fr 4fr 4fr;
+}
+
+.adminFlag {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 45px;
+}
+
+.adminName {
+  //  position: absolute;
+  // font-size: 10px;
+  // right: 0px;
+  // top: 50px;
+  // width: 50px;
+  // overflow-wrap: break-word;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 120px;
+  font-size: 10px;
+  background: lightgreen;
+  overflow-wrap: break-word;
+}
+
+.eventType {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  width: 30px;
+}
+
+/*** TOOLBAR ***/
+
+.btnClose {
+  text-align: center;
+  font-size: 30px;
+  color: gray;
+  text-shadow: 1px 1px 1px #aaa;
+}
+
+.grdToolbar {
+  display: grid;
+  grid-template-columns: 50px 1fr 40px; // background: linear-gradient(#ffffff59 88%, #000000);
+  background: radial-gradient(circle at 50%, #fff, #eee 70%, #ddd 85%, #bdbcbc 100%);
+  padding: 10px 5px 5px 10px;
+  box-shadow: 0px 4px 5px #666;
+}
+
+.grdContacts {
+  margin: 10px;
+  height: 55px;
+  background: white;
+  box-shadow: 3px 3px 8px #555;
+  display: grid;
+  grid-template-columns: 60px 60px 1fr;
+}
+
+.top-to-bottom {
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.bottom-to-top {
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to top, white, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.left-to-right {
+  border-width: 3px 0 3px 3px;
+  border-style: solid;
+  border-image: linear-gradient(to right, black, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.right-to-left {
+  border-width: 3px 3px 3px 0;
+  border-style: solid;
+  border-image: linear-gradient(to left, white, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.grdMember {
+  margin: 5px;
+  height: 55px;
+  background: #eee;
+  box-shadow: 1px 1px 1px #555;
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-columns: 60px 1fr 40px;
+}
+
+.mid {
+  align-self: center;
+}
+
+.midCenter {
+  justify-self: center;
+}
+
+.title {
+  padding-left: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 3px #888;
+}
+
+.logoTipo {
+  width: 50px;
+}
+
+/***********************************/
+
+/* MENU *****************************/
+
+.menuText {
+  color: white;
+  text-shadow: 1px 1px 2px #222;
+}
+
+.menuIcon {
+  margin: 5px;
+  color: white;
+}
+
+.menuContent {
+  background: linear-gradient(to right, #155994, #003c67);
+  color: white;
+  width: 200px
+}
+
+.md ion-menu[type=overlay] .menu-inner {
+  box-shadow: none;
+}
+
+.md .menu-inner {
+  background: transparent;
+}
+
+.menuButton {
+  padding: 5px;
+  background: transparent;
+}
+
+/*************************************/
+
+.btnSort {
+  margin-top: -10px;
+  margin-right: -10px;
+}
+
+.backCard {
+  padding: 10px;
+  background: -webkit-radial-gradient(#fff 28%, #d6d5d5 75%) !important;
+}
+
+.toolbar-background-md {
+  //Modo: Azul y Negro
+  background: -webkit-linear-gradient(#2675b5, #004f7d) !important; // Modo: Segat
+  //background: -webkit-linear-gradient(#094C83, #337AB7) !important;
+  //background: -o-linear-gradient(#094C83, #337AB7) !important;
+  //background: -moz-linear-gradient(#094C83, #337AB7) !important;
+  //background: linear-gradient(#094C83, #337AB7) !important;
+  // Modo: Rojo
+  //background: -webkit-linear-gradient(#5a5a5a, #000) !important;
+  //background: -o-linear-gradient(#5a5a5a, #000) !important;
+  //background: -moz-linear-gradient(#5a5a5a, #000) !important;
+  //background: linear-gradient(#5a5a5a, #000) !important;
+  // Modo: Cyan y Rojo
+  //background-color: #C13245;
+}
+
+.titleBar {
+  float: left;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px #111;
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.toolbar-title-md {
+  color: #FFF;
+}
+
+.counter {
+  opacity: 0;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  right: -12px;
+  top: -32px;
+  background-color: red;
+  border-radius: 100%;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  z-index: 1000;
+  font-size: 12px;
+}
+
+.counterON {
+  opacity: 1;
+}
+
+.counterNumber {
+  font-size: 11px;
+  font-family: sans-serif;
+  z-index: 1000;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 2px;
+  text-shadow: .5px .5px 0px rgba(0, 0, 0, 1);
+}
+
+/*************************************************************/

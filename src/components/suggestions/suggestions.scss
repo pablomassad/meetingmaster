@@ -1,0 +1,46 @@
+page-suggestions {
+   .grd{
+      display:grid;
+      grid-template-rows: 50px 1fr 50px;
+   }
+   .grdSuggestions{
+      height: calc( 100vh - 166px );
+      overflow-y: auto;
+      background: -webkit-radial-gradient(#eee 28%, #d6d5d5 75%) !important;
+   }
+  .grdItem {
+    display: grid;
+    grid-template-rows: 25px 1fr 10px;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 2px 2px 3px grey;
+  }
+  .cmtHeaderName {
+    font-weight: bold;
+  }
+  .cmtHeaderAvatar {
+    justify-self: right;
+    width: 40px;
+  }
+  .cmtBody {
+    min-height: 30px;
+    grid-column: span 3;
+  }
+  .cmtFooter {
+    grid-column: span 3;
+    font-size: 10px;
+    justify-self: right;
+  }
+  .btnDelete{
+    position: absolute;
+    left: 0px;
+    margin-top: -8px;
+    text-align: right;
+    font-size: 30px;
+    color: gray;
+    text-shadow: 1px 1px 1px #aaa;
+  }
+}

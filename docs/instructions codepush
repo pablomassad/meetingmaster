@@ -1,0 +1,22 @@
+Modificar el index.html y agregar metadata:
+<meta http-equiv="Content-Security-Policy" content="default-src https://codepush.azurewebsites.net 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *" />
+
+sudo npm install -g code-push-cli
+
+code-push login
+
+code-push app add com.pp.meetingmaster android cordova
+
+<platform name="android">
+<preference name="CodePushDeploymentKey" value="xxxxxxxxxxxxxxxx"/>
+</platform>
+
+ionic cordova plugin add cordova-plugin-code-push
+
+npm install --save @ionic-native/code-push
+
+ionic build android
+ionic serve
+
+code-push release-cordova com.pp.meetingmaster android -m
+

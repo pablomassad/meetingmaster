@@ -1,0 +1,28 @@
+hours {
+  .grdHours {
+    padding: 0px;
+    background: #e2e0e0;
+  }
+  .cell {
+    border: 0.5px solid;
+    height: 30px;
+  }
+  .value {
+    background: #490052;
+  }
+  .hour {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .hourText {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin: 0px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    opacity: 1 !important;
+  }
+}

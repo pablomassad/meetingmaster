@@ -1,0 +1,10 @@
+page-contacts {
+   .grdPhoneContacts{
+      display:grid;
+      grid-template-columns: 40px 50px 1fr 1fr;
+      background:white;
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px;
+      margin:5px;
+   }
+}

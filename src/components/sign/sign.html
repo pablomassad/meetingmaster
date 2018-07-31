@@ -1,0 +1,64 @@
+<ion-content class="backPage">
+  <div *ngIf="signMode == 'signIn';then signIn else signUp"></div>
+
+  <ng-template #signIn>
+    <form [formGroup]="todo">
+         <ion-row class="backForm">
+               <ion-col>
+                 <ion-item floating style="background:transparent">
+                   <ion-label floating>Email</ion-label>
+                   <ion-input type="email" formControlName="fcn_email" [(ngModel)]="email"></ion-input>
+                 </ion-item>
+                 <ion-item floating style="background:transparent">
+                   <ion-label floating>Contraseña</ion-label>
+                   <ion-input type="password" formControlName="fcn_password" [(ngModel)]="password"></ion-input>
+                 </ion-item>
+               </ion-col>
+             </ion-row>
+             <ion-row style="margin-top: 10px">
+               <ion-col>
+                 <button ion-button (click)="close()" class="loginBtn" type="submit" round color="danger">
+                   Cancelar
+                 </button>
+               </ion-col>
+               <ion-col>
+                 <button ion-button (click)="login()" class="loginBtn" full type="submit" [disabled]="!todo.valid" round color="primary">
+                   Ingresar
+                 </button>
+               </ion-col>
+             </ion-row>
+    </form>
+
+  </ng-template>
+  <ng-template #signUp>
+    <ion-row class="backForm">
+      <ion-col>
+        <ion-item floating style="background:transparent">
+          <ion-label floating>Nombre de usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item floating style="background:transparent">
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item floating style="background:transparent">
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 10px">
+      <ion-col>
+        <button ion-button (click)="close()" class="loginBtn" type="submit" round color="danger">
+          Cancelar
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="register()" class="loginBtn" type="submit" round color="primary">
+          Registrar
+        </button>
+      </ion-col>
+    </ion-row>
+  </ng-template>
+
+</ion-content>

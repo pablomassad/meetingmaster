@@ -1,0 +1,56 @@
+<ion-header class="grdToolbar">
+  <img class="logoTipo" src="assets/imgs/contacts.png">
+  <div class="title">{{title}}</div>
+  <ion-icon class="btnClose" (click)="closeModal()" name="close-circle"></ion-icon>
+</ion-header>
+
+<ion-content class="backPage">
+  <ion-grid>
+    <ion-row style="background:white">
+      <ion-icon name="search" class="searchIcon"></ion-icon>
+      <ion-input type="text" class="searchBar" placeholder="Buscar contacto" [(ngModel)]="searchText"></ion-input>
+      <p>Orden: {{getSortName()}}</p>
+      <ion-icon name="{{getIcon()}}" class="sortName searchIcon"></ion-icon>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <div *ngFor="let ct of community | async | searchInfo: searchText | orderBy:sortField:direction" class="grdContacts">
+    <ion-toggle class="mid midCenter"  [checked]="initContacts(ct)" (ionChange)="selChanged($event, ct)"></ion-toggle>
+    <ion-avatar class="mid midCenter">
+      <img class="avatar" [src]="ct.photoURL">
+    </ion-avatar>
+    <div class="mid">{{ct.displayName}}</div>
+  </div> -->
+  <div>TOTAL contactos: {{phoneContacts.length}}</div>
+  <div *ngFor="let ct of phoneContacts | searchInfo: searchText | orderBy:sortField:direction" class="grdPhoneContacts">
+    <ion-toggle class="mid midCenter"></ion-toggle>
+    <ion-avatar class="mid midCenter" (click)="showSelPhoto(ct)">
+      <img class="avatar" [src]="getPhoto(ct)">
+    </ion-avatar>
+
+    <div class="mid">{{ct.displayName}}</div>
+    <div class="mid">{{getPhone(ct)}}</div>
+    <!-- <div class="mid">{{ct.name}}</div> -->
+    <!-- <div class="mid">{{ct.nameFormatted}}</div>             -->
+    <!-- <div class="mid">{{ct.nickName}}</div> -->
+    <!-- <div class="mid">{{ct.familyName}}</div> -->
+    <!-- <div class="mid">{{ct.givenName}}</div> -->
+  </div>
+
+
+  <button ion-button (click)="saveToContacts()" *ngIf="confirmFlag === true">Aceptar</button>
+
+  <ion-fab class="btnSort" top right #fab>
+    <button ion-fab mini>
+      <ion-icon name="funnel"></ion-icon>
+    </button>
+    <ion-fab-list>
+      <button ion-fab mini (click)="getSortedContacts('displayName', fab)">
+        <ion-icon name="person"></ion-icon>
+      </button>
+      <button ion-fab mini (click)="getSortedContacts('selected', fab)">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

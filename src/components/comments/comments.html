@@ -1,0 +1,30 @@
+<ion-header class="grdToolbar">
+  <img class="logoTipo" src="assets/imgs/comments.png">
+  <div class="title">{{title}}</div>
+  <ion-icon class="btnClose" (click)="closeModal()" name="close-circle"></ion-icon>
+</ion-header>
+
+<ion-content class="backPage grd">
+  <ion-grid>
+    <ion-row style="background:white">
+      <ion-icon name="search" class="searchIcon"></ion-icon>
+      <ion-input type="text" class="searchBar" placeholder="Buscar" [(ngModel)]="searchText"></ion-input>
+    </ion-row>
+  </ion-grid>
+  <ion-content class="grdComments" #comLst>
+    <div *ngFor="let ct of comments | searchInfo: searchText" class="grdItem">
+      <div class="cmtHeaderName">{{ct.ownerName}}</div>
+      <ion-avatar class="cmtHeaderAvatar">
+        <img [src]="ct.photoURL">
+      </ion-avatar>
+      <div class="cmtBody">{{ct.comment}}</div>
+      <div class="cmtFooter">{{ct.creationDate | date:'dd/MM/yyyy HH:mm'}}</div>
+    </div>
+   </ion-content>
+  <ion-item>
+    <ion-input placeholder="Ingrese comentario" clearInput [(ngModel)]="newComment"></ion-input>
+    <button ion-button outline item-end icon-left (click)="add()">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </ion-item>
+</ion-content>

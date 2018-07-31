@@ -1,0 +1,103 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.headApp {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+}
+.progBar{
+   position: absolute;
+   width: 100%;
+   z-index: 100;
+}
+
+.backPage {
+  // margin-top: 80px;
+  min-width: 310px;
+  background: -webkit-radial-gradient(#eee 28%, #d6d5d5 75%) !important;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px;
+}
+
+.sortName {
+  margin-right: 60px;
+}
+
+.searchIcon {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-top: 13px;
+}
+
+.searchBar {
+  margin: 0px;
+}
+
+.statusIcons {
+  float: right;
+  margin-top: 4px;
+  margin-right: -20px;
+  font-size: 25px !important;
+  text-shadow: 1px 1px 2px black;
+}
+
+.iconStatus {
+  color: #779;
+  margin-right: 12px;
+  float: left;
+  height: 30px;
+}
+
+.iconStatusON {
+  color: white;
+}
+
+.counter {
+  opacity: 0;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  right: -12px;
+  top: -32px;
+  background-color: red;
+  border-radius: 100%;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  z-index: 1000;
+  font-size: 12px;
+}
+
+.counterON {
+  opacity: 1;
+}
+
+.counterNumber {
+  font-size: 11px;
+  font-family: sans-serif;
+  z-index: 1000;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 2px;
+  text-shadow: .5px .5px 0px rgba(0, 0, 0, 1);
+}

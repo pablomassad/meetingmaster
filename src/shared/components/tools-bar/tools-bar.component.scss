@@ -1,0 +1,35 @@
+tools-bar {
+   
+    .titleBar {
+        float: left;
+        margin-top: 10px;
+        text-shadow: 1px 1px 2px #111;
+        font-weight: bold;
+        font-size: 21px;
+    }
+
+    .toolbar-title-md{
+        color: #FFF;
+    }
+
+    .toolbar-background-md{
+        //Modo: Azul y Negro
+        background: -webkit-linear-gradient(#2675b5, #004f7d) !important;
+
+        // Modo: Segat
+        //background: -webkit-linear-gradient(#094C83, #337AB7) !important;
+        //background: -o-linear-gradient(#094C83, #337AB7) !important;
+        //background: -moz-linear-gradient(#094C83, #337AB7) !important;
+        //background: linear-gradient(#094C83, #337AB7) !important;
+        
+        // Modo: Rojo
+        //background: -webkit-linear-gradient(#5a5a5a, #000) !important;
+        //background: -o-linear-gradient(#5a5a5a, #000) !important;
+        //background: -moz-linear-gradient(#5a5a5a, #000) !important;
+        //background: linear-gradient(#5a5a5a, #000) !important;
+    
+        // Modo: Cyan y Rojo
+        //background-color: #C13245;
+    }
+
+}

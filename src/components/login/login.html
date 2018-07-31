@@ -1,0 +1,46 @@
+<ion-content class="login_back">
+  <div class="grdLogin">
+    <div></div>
+    <div style="justify-self: center">
+      <img src="assets/imgs/calendarIcon.png" style="max-width:100px;margin-left:30%">
+      <div class="logoTitle">Meeting Master</div>
+    </div>
+    <div></div>
+  </div>
+  <div *ngIf="!idEvtParam;then invitation else invitation"></div>
+
+  <ng-template #invitation>
+    <div class="grdInvitation">
+      <div class="pushButton green" (click)="signIn()">
+        <ion-icon name="unlock" style="font-size:35px"></ion-icon>
+        <div>
+          Ingresar
+        </div>
+      </div>
+      <div class="pushButton red" (click)="signUp()">
+        <ion-icon name="person" style="font-size:35px"></ion-icon>
+        <div>
+          Registrar
+        </div>
+      </div>
+      <div class="pushButton blue" (click)="loginGoogle()">
+        <ion-icon name="logo-google" style="font-size:35px"></ion-icon>
+        <div>
+          Google
+        </div>
+      </div>
+      <div class="pushButton magenta" (click)="loginFacebook()">
+        <ion-icon name="logo-facebook" style="font-size:35px"></ion-icon>
+        <div>
+          Facebook
+        </div>
+      </div>
+      <div class="pushButton yellow" (click)="download()" style="grid-column:1/3">
+            <ion-icon name="appstore" style="font-size:35px"></ion-icon>
+            <div>
+              Descargar
+            </div>
+          </div>      
+    </div>
+  </ng-template>
+</ion-content>

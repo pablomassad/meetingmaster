@@ -1,0 +1,29 @@
+page-memberStatus {
+  .grdMembers {
+    margin: 10px;
+    padding:5px;
+    height: 55px;
+    background: #eee;
+    box-shadow: 3px 3px 8px #555;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 40px 60px 1fr 40px;
+  }
+  .memberON {
+    background: #bbb;
+    box-shadow: 0px 0px 3px;
+    margin: 12px;
+  }
+  .grdSearchFilter{
+     display: grid;
+     grid-template-columns: 50px 16px 1.2fr 1fr 70px;
+     align-items: center;
+  }
+  .btnCheckAll{
+     margin-left:-12px;
+     margin-top: -10px;
+  }
+  .optsIcon{
+     font-size: 30px;
+  }
+}

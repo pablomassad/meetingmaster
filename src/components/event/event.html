@@ -1,0 +1,168 @@
+<ion-header class="grdToolbar">
+  <div>
+    <img class="logoTipo" src="assets/imgs/calendar.png">
+    <div class="fechaProgramada" *ngIf="evt.type=='calendario'">
+      <div class="dia">{{evt.estimationDate.day}}</div>
+      <div class="mes">{{evt.estimationDate.month}}</div>
+    </div>
+  </div>
+  <div class="title">{{title}}</div>
+  <ion-icon class="btnClose" (click)="closeModal()" name="close-circle"></ion-icon>
+</ion-header>
+
+<ion-content class="backPage">
+  <div class="grdEvento">
+    <div id="evento" class="grdInfo">
+      <div class="info">
+        <div class="item evtName">{{evt.name}}</div>
+        <div class="item evtDesc">
+          {{evt.description}}
+        </div>
+        <div class="item evtAdmin">
+          <strong>Admin: </strong>
+          {{evt.ownerName}}
+        </div>
+        <div class="item evtUltMod">
+          <strong>Fecha:</strong>
+          {{evt.modificationDate | date:'dd/MM/yyyy HH:mm'}}
+        </div>
+      </div>
+    </div>
+    <div id="tipo" *ngIf="evt.type == 'calendario'">
+      <div class="grdDays">
+        <div class="grdDaysNames">
+          <div>
+          </div>
+          <div *ngFor="let d of weekDataKeys" (click)="toggleAllDay(d)">
+            <div class="dayName">{{weekData[d].dayName}}</div>
+            <div class="dayNum" [ngClass]="{'today':isToday(d)}">{{weekData[d].dayNum}}</div>
+          </div>
+        </div>
+        <div>
+          <div class="grdScheduler">
+            <div class="hoursNum">
+              <div>00</div>
+              <div>01</div>
+              <div>02</div>
+              <div>03</div>
+              <div>04</div>
+              <div>05</div>
+              <div>06</div>
+              <div>07</div>
+              <div>08</div>
+              <div>09</div>
+              <div>10</div>
+              <div>11</div>
+              <div>12</div>
+              <div>13</div>
+              <div>14</div>
+              <div>15</div>
+              <div>16</div>
+              <div>17</div>
+              <div>18</div>
+              <div>19</div>
+              <div>20</div>
+              <div>21</div>
+              <div>22</div>
+              <div>23</div>
+            </div>
+            <div class="grdCalendar">
+              <div *ngFor="let d of weekDataKeys">
+                <hours [dictionary]="weekData[d].info" [max]="totalMembers" (selectedCell)="editCell($event, d)"></hours>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tipo" *ngIf="evt.type == 'seleccion'">
+      <div padding radio-group>
+        <div class="titleSeleccion">
+          {{evt.question}}
+        </div>
+        <div *ngFor="let item of selectionItemsKeys" style="position: sticky;margin:10px">
+          <div class="grdSel grdSelSingle" *ngIf="evt.answerType =='unica'">
+            <ion-radio checked="evt.selectionItems[item][user.uid]" (ionChange)="onSelChange($event, item)"></ion-radio>
+            <ion-label style="z-index: 10">{{item}}</ion-label>
+            <button ion-button (click)="showSelMembers(item)" class="btnMembersInfo">
+              <div>{{calcCounter(item)}}</div>
+            </button>
+          </div>
+          <div class="grdSel grdSelMulti" *ngIf="evt.answerType =='multiple'">
+            <ion-checkbox [(ngModel)]="evt.selectionItems[item][user.uid]" (ionChange)="onSelChange($event, item)"></ion-checkbox>
+            <ion-label style="z-index: 10">{{item}}</ion-label>
+            <button ion-button (click)="showSelMembers(item)" class="btnMembersInfo">
+              <div>{{calcCounter(item)}}</div>
+            </button>
+          </div>
+          <div class="grdSel grdSelRating" *ngIf="evt.answerType=='clasificacion'">
+            <div>
+              <ion-label style="z-index: 10">{{item}}</ion-label>
+              <rating [(ngModel)]="evt.selectionItems[item][user.uid]" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                starIconName="star" nullable="true" (ngModelChange)="onRatingChange($event)">
+                {{item}}
+              </rating>
+            </div>
+            <button ion-button (click)="showSelMembers(item)" class="btnMembersInfo">
+              <div>{{calcCounter(item)}}</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tipo" *ngIf="evt.type == 'votacion'">
+      <div padding class="grdVotacion">
+        <h4 style="text-align: center">
+          {{evt.question}}
+        </h4>
+        <div class="grdVoteOps">
+          <div class="voteYes">
+            <button class="btnYesNo" [ngClass]="{'selYes':getVote('yes')}" (click)="vote('yes')">
+              <img src="assets/imgs/like.png" class="imgYes">
+            </button>
+          </div>
+          <div class="voteNo">
+            <button class="btnYesNo" [ngClass]="{'selNo':getVote('no')}" (click)="vote('no')">
+              <img src="assets/imgs/nolike.png" class="imgNo">
+            </button>
+          </div>
+        </div>
+        <div class="grdVoteResult">
+          <div class="resYes">{{calcCounter('yes')}} [{{calcPercent('yes')}}%]</div>
+          <div class="resultBar">
+            <div class="yesBar" [ngStyle]="{'width':calcPercent('yes')+'%'}"></div>
+          </div>
+          <div class="resNo">{{calcCounter('no')}} [{{calcPercent('no')}}%]</div>
+        </div>
+      </div>
+    </div>
+    <div id="botonera">
+      <div>
+        <button ion-button (click)="prevWeek()" color="dark" *ngIf="evt.type==='calendario'">
+          <ion-icon name="rewind" class=""></ion-icon>
+        </button>
+      </div>
+      <div>
+        <button class="btnRound" (click)="showComments()">
+          <ion-icon name="list-box"></ion-icon>
+        </button>
+      </div>
+      <div>
+        <button ion-button (click)="save()" color="primary" [disabled]="!dirtyFlag">
+          <ion-icon name="archive"></ion-icon>
+          <span style="margin-left:10px">Guardar</span>
+        </button>
+      </div>
+      <div>
+        <button class="btnRound" (click)="toggleEditMode()" [ngClass]="{'btnRoundON':(editMode === true)}" *ngIf="evt.type === 'calendario'">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </div>
+      <div>
+        <button ion-button (click)="nextWeek()" color="dark" *ngIf="evt.type==='calendario'">
+          <ion-icon name="fastforward" class=""></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

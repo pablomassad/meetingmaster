@@ -1,0 +1,55 @@
+<ion-header class="grdToolbar">
+  <img class="logoTipo" src="assets/imgs/members.png">
+  <div class="title">{{title}}</div>
+  <ion-icon class="btnClose" (click)="closeModal()" name="close-circle"></ion-icon>
+</ion-header>
+
+<ion-content class="backPage">
+  <div class="grdSearchFilter">
+    <div></div>
+    <ion-icon name="search" class="optsIcon"></ion-icon>
+    <ion-input type="text" class="searchBar" placeholder="Buscar miembro" [(ngModel)]="searchText"></ion-input>
+    <p>Orden: {{getSortName()}}</p>
+    <ion-icon name="{{getIcon()}}" class="sortName optsIcon"></ion-icon>
+    <div></div>
+  </div>
+
+  <div *ngFor="let m of members | searchInfo: searchText | orderBy:sortField:direction" class="grdMembers" [ngClass]="{'memberON':m.onoff === true}"
+    (click)="statusChanged(m)">
+    <div>
+      <img src="assets/imgs/handfinger.png" *ngIf="m.present === true" class="presentIcon">
+    </div>
+    <ion-avatar class="mid midCenter">
+      <img class="avatar" [src]="m.photoURL">
+    </ion-avatar>
+    <div class="mid">{{m.displayName}}</div>
+    <div>
+      <img src="assets/imgs/sand_clock.png" *ngIf="m.pending === true" class="pendingIcon">
+    </div>
+  </div>
+
+  <ion-fab class="btnSort" top right #fab>
+    <button ion-fab mini>
+      <ion-icon name="funnel"></ion-icon>
+    </button>
+    <ion-fab-list>
+      <button ion-fab mini (click)="getSorted('displayName', fab)">
+        <ion-icon name="person"></ion-icon>
+      </button>
+      <button ion-fab mini (click)="getSorted('onoff', fab)">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </button>
+      <button ion-fab mini (click)="getSorted('present', fab)">
+        <ion-icon name="hand"></ion-icon>
+      </button>
+      <button ion-fab mini (click)="getSorted('pending', fab)">
+        <ion-icon name="clock"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-fab class="btnCheckAll" top left #fab>
+    <button ion-fab mini (click)="selectAll()">
+      <ion-icon name="done-all"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
