@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.pp.meetingmaster" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <platform name="android">
-        <preference name="CodePushDeploymentKey" value="FoQ6OJpDDEJBySQnDOGTTozaFkFL36782d21-3e82-4316-9366-3e8515e3da2b" />
+        <preference name="CodePushDeploymentKey" value="7shOf8zvs-LAfXllycUDgzKYJqw53236c95e-519c-4873-a67d-fd25982456aa" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -25,8 +25,8 @@
     <description>Meeting Master App</description>
     <author email="pablo.a.massad@gmail.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <universal-links>
-        <host name="zw8s9.app.goo.gl" scheme="https" />
-        <host name="events-12be3.firebaseapp.com" scheme="https">
+        <host name="meetingmaster.page.link" scheme="https" />
+        <host name="pp-meetingmaster.firebaseapp.com" scheme="https">
             <path url="/__/auth/callback" />
         </host>
     </universal-links>

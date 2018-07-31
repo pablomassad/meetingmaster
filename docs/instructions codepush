@@ -5,7 +5,7 @@ sudo npm install -g code-push-cli
 
 code-push login
 
-code-push app add com.pp.meetingmaster android cordova
+code-push app add meetingmaster android cordova
 
 <platform name="android">
 <preference name="CodePushDeploymentKey" value="xxxxxxxxxxxxxxxx"/>
@@ -18,5 +18,5 @@ npm install --save @ionic-native/code-push
 ionic build android
 ionic serve
 
-code-push release-cordova com.pp.meetingmaster android -m
+code-push release-cordova meetingmaster android -m
 

@@ -1,0 +1,22 @@
+Crear proyecto en Firebase
+Copiar configuracion de acceso
+
+Instalar sudo npm install -g ionic cordova
+Instalar sudo npm install -g firebase-tools
+Instalar sudo npm install -g code-push-cli
+
+
+ionic cordova platform add 
+ionic resources
+ionic cordova run android
+ionic serve
+
+ionic cordova plugin add onesignal-cordova-plugin
+npm install --save @ionic-native/onesignal
+
+Login en OneSignal con github
+Crear proyecto
+Copiar codigo onesignal en home.tools
+
+
+
