@@ -17,10 +17,10 @@ import { AngularFireAuth } from 'angularfire2/auth'
 import { AngularFireModule } from 'angularfire2'
 import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { FirebaseService } from '../shared/services/firebase.service'
-import { FIREBASE_CONFIG } from '../shared/services/firebase.config'
 
 import { FwkServicesModule, ApplicationService, GlobalService, ProgressBarComponent } from 'fwk-services';
 import { FwkAuthModule, AuthService } from 'fwk-auth'
+import { ENVIRONMENTS } from '../environments';
 
 
 
@@ -35,7 +35,7 @@ import { FwkAuthModule, AuthService } from 'fwk-auth'
       BrowserAnimationsModule,
       IonicModule.forRoot(MeetingApp),
       AngularFirestoreModule,
-      AngularFireModule.initializeApp(FIREBASE_CONFIG),
+      AngularFireModule.initializeApp(ENVIRONMENTS.firebase),
       SharedModule.forRoot()
    ],
    bootstrap: [IonicApp],
