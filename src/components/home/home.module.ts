@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http'
 import { SharedModule } from '../../shared/shared.module'
 import { EventPageModule } from '../../components/event/event.module'
 import { PipesModule } from '../../shared/pipes/pipes.module';
+import { FCMService } from '../../shared/services/fcm.service';
 
 @NgModule({
    declarations: [
       HomePage
    ],
    imports: [
+      FCMService,
       HttpClientModule,
       SharedModule.forRoot(),
       EventPageModule,

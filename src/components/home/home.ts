@@ -8,6 +8,7 @@ import { ENVIRONMENTS } from '../../environments'
 import { FirebaseService } from '../../shared/services/firebase.service';
 import { HttpClient } from '@angular/common/http'
 import { Subscription } from 'rxjs';
+import { FCMService } from '../../shared/services/fcm.service';
 
 @IonicPage()
 @Component({
@@ -31,6 +32,7 @@ export class HomePage implements OnInit, OnDestroy {
    private subCom: Subscription
 
    constructor(
+      private fcmSrv: FCMService,
       private platform:Platform,
       private alertCtrl: AlertController,
       private navCtrl: NavController,
@@ -45,6 +47,18 @@ export class HomePage implements OnInit, OnDestroy {
    ) {
       console.log('HomePage contructor')
       this.user = this.navParams.get('usr')
+      const plataforma = this.globalSrv.getVar('plataforma')
+      if (plataforma == "mobile") {
+         this.fcmSrv.initFCM(this.user.username)
+         this.fcmSrv.getToken()
+         this.appSrv.message('user: ' + this.user.username)
+         this.fcmSrv.subscribeTopic(this.user.username)
+         this.fcmSrv.listenOnNotification().subscribe(o => {
+            this.appSrv.message('Mensaje recibido!!!', 'info')
+            console.log('msg received: ', o)
+            //this.evalNotification(o);
+         })
+      }
    }
 
    ngOnInit() {
@@ -206,7 +220,25 @@ export class HomePage implements OnInit, OnDestroy {
          return "arrow-dropup"
    }
 
-
+   private evalNotification(data) {
+      // if (data.type == "PRUEBA_LINEA") {
+      //    this.updateAlerts('LineaPage', data);
+      // }
+      // if (data.type == "PRUEBA_ADSL") {
+      //    this.updateAlerts('ADSLPage', data);
+      // }
+      // if (data.type == "PRUEBA_SELT") {
+      //    this.updateAlerts('NACPage', data);
+      // }
+      // if (data.type == "CAMBIO_PORT") {
+      //    this.updateAlerts('CambioPortPage', data);
+      // }
+      // if (data.type == "CONFIG") {
+      //    if (data.urlBase) {
+      //       this.globalSrv.save('urlBase', data.urlBase);
+      //    }
+      // }
+   }
    private notifyMemberInEvent(uid) {
       try {
          if (!idEvtParam) return
