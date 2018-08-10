@@ -123,6 +123,6 @@
     <plugin name="cordova-plugin-file-transfer" spec="1.7.1" />
     <plugin name="cordova-plugin-zip" spec="^3.1.0" />
     <plugin name="cordova-plugin-code-push" spec="^1.11.11" />
-    <plugin name="onesignal-cordova-plugin" spec="^2.4.1" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
 </widget>

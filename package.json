@@ -24,8 +24,8 @@
     "@firebase/app": "0.1.10",
     "@ionic-native/code-push": "^4.10.1",
     "@ionic-native/core": "4.7.0",
+    "@ionic-native/firebase": "^4.11.0",
     "@ionic-native/network": "^4.10.1",
-    "@ionic-native/onesignal": "^4.10.1",
     "@ionic-native/social-sharing": "4.7.0",
     "@ionic-native/splash-screen": "4.7.0",
     "@ionic-native/status-bar": "4.7.0",
@@ -43,6 +43,7 @@
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-file": "^5.0.0",
     "cordova-plugin-file-transfer": "^1.7.1",
+    "cordova-plugin-firebase": "^1.0.5",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
@@ -59,14 +60,13 @@
     "ionicons": "3.0.0",
     "moment": "2.22.1",
     "ngx-order-pipe": "v2.0.1",
-    "onesignal-cordova-plugin": "^2.4.1",
     "promise-polyfill": "7.1.2",
     "rxjs": "5.5.5",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.1.9",
+    "@ionic/app-scripts": "3.1.11",
     "typescript": "2.6.2"
   },
   "description": "Meeting Master, event manager",
@@ -91,7 +91,7 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-zip": {},
       "cordova-plugin-code-push": {},
-      "onesignal-cordova-plugin": {}
+      "cordova-plugin-firebase": {}
     },
     "platforms": [
       "android"

@@ -7,8 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar'
 
 import { CodePush } from '@ionic-native/code-push'
 
-import { OneSignal } from '@ionic-native/onesignal';
-
 import { MeetingApp } from './app.component'
 import { SharedModule } from '../shared/shared.module'
 
@@ -17,6 +15,7 @@ import { AngularFireAuth } from 'angularfire2/auth'
 import { AngularFireModule } from 'angularfire2'
 import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { FirebaseService } from '../shared/services/firebase.service'
+import { Firebase } from '@ionic-native/firebase'
 
 import { FwkServicesModule, ApplicationService, GlobalService, ProgressBarComponent } from 'fwk-services';
 import { FwkAuthModule, AuthService } from 'fwk-auth'
@@ -44,7 +43,7 @@ import { ENVIRONMENTS } from '../environments';
       ProgressBarComponent
    ],
    providers: [
-      OneSignal,
+      Firebase,
       AuthService,
       ApplicationService, 
       GlobalService,

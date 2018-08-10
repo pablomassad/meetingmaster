@@ -69,7 +69,6 @@ export class LoginPage implements OnInit, OnDestroy {
       }, {})
       mod.present()
       mod.onDidDismiss(data => {
-
       })
    }
    signUp(): void {
@@ -120,8 +119,8 @@ export class LoginPage implements OnInit, OnDestroy {
 
    private redirectHome(usr) {
       console.log('login provider: ' + usr)
-      this.navCtrl.insert(0, 'HomePage', { usr: usr });
-      this.navCtrl.popToRoot();
+      this.navCtrl.insert(0, 'HomePage', { usr: usr })
+      this.navCtrl.popToRoot()
    }
    private getUid(str) {
       const res = str.replace(/\./gi, '')

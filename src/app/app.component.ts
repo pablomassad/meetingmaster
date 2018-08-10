@@ -4,7 +4,8 @@ import { AngularFirestore } from 'angularfire2/firestore'
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 import { CodePush, SyncStatus } from '@ionic-native/code-push'
-import { ApplicationService } from 'fwk-services'
+import { ApplicationService, GlobalService } from 'fwk-services'
+
 
 @Component({
    templateUrl: 'app.html'
@@ -15,6 +16,7 @@ export class MeetingApp implements OnInit, OnDestroy {
    showProgressBar:boolean=false
 
    constructor(
+      private globalSrv: GlobalService,
       private zone:NgZone,
       private codePush: CodePush,
       private afs: AngularFirestore,
@@ -95,10 +97,12 @@ export class MeetingApp implements OnInit, OnDestroy {
       console.warn('MeetingApp destroy');
    }
    ngOnInit(): void {
-      console.log('MeetingApp init');
+      console.log('MeetingApp init')
+      this.nav.setRoot('LoginPage')
    }
-   // download() {
-   //    window.open('http://190.225.183.34:8080/toolbox/apks/dbm.apk', '_system');
-   // }
+   logout() {
+      this.globalSrv.save('user', null)
+      this.nav.setRoot('LoginPage')
+   }
 }
 

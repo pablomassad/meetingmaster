@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { NavController, IonicPage, NavParams, ActionSheetController, ModalController, Modal, Platform, AlertController } from 'ionic-angular'
-import { OneSignal } from '@ionic-native/onesignal'
 import { ApplicationService, GlobalService } from 'fwk-services'
 import { AuthService } from 'fwk-auth';
 
@@ -32,7 +31,6 @@ export class HomePage implements OnInit, OnDestroy {
    private subCom: Subscription
 
    constructor(
-      private oneSignal: OneSignal,
       private platform:Platform,
       private alertCtrl: AlertController,
       private navCtrl: NavController,
@@ -53,28 +51,7 @@ export class HomePage implements OnInit, OnDestroy {
       console.log('HomePage init')
 
       const plataforma = this.globalSrv.getVar('plataforma')
-      if (plataforma == "mobile") {
-         this.oneSignal.setLogLevel({ logLevel: 1, visualLevel: 1 })
-         const firebaseConfig = ENVIRONMENTS.firebase   
-         const oneSignalId = ENVIRONMENTS.oneSignalId
-         //this.oneSignal.startInit('994ca981-ece6-48b8-bc11-154ec73066db', '966739792993')
-         this.oneSignal.startInit(oneSignalId, firebaseConfig.messagingSenderId)
-
-         this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.None)
-         //this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert)
-
-         this.oneSignal.handleNotificationReceived().subscribe((x) => {
-            this.appSrv.basicAlert(JSON.stringify(x))
-         })
-         this.oneSignal.handleNotificationOpened().subscribe((x) => {
-            this.appSrv.basicAlert(JSON.stringify(x))
-         })
-         this.oneSignal.endInit();
-         this.oneSignal.sendTag('legajo', this.user.legajo)
-         this.oneSignal.getIds().then(x => { //x.userId: id de app cliente  -  x.pushToken: random chars
-            console.log(JSON.stringify(x))
-         })
-      }  
+ 
       this.notifyMemberInEvent(this.user.uid)
       this.subEvt = this.fs.getEventsByUid(this.user.uid).subscribe(data => {
          this.events = data

@@ -11,8 +11,11 @@ ionic resources
 ionic cordova run android
 ionic serve
 
-ionic cordova plugin add onesignal-cordova-plugin
-npm install --save @ionic-native/onesignal
+#ionic cordova plugin add onesignal-cordova-plugin
+#npm install --save @ionic-native/onesignal
+
+ionic cordova plugin add cordova-plugin-firebase
+npm install --save @ionic-native/firebase
 
 Login en OneSignal con github
 Crear proyecto
