@@ -15,7 +15,6 @@ import { FCMService } from '../../shared/services/fcm.service';
       HomePage
    ],
    imports: [
-      FCMService,
       HttpClientModule,
       SharedModule.forRoot(),
       EventPageModule,
@@ -24,7 +23,7 @@ import { FCMService } from '../../shared/services/fcm.service';
       CommonModule,
       IonicPageModule.forChild(HomePage)
    ],
-   providers: []
+   providers: [FCMService]
 })
 export class HomePageModule {
    constructor() {

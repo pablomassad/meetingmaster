@@ -70,11 +70,9 @@ export class HomePage implements OnInit, OnDestroy {
       this.subEvt = this.fs.getEventsByUid(this.user.uid).subscribe(data => {
          this.events = data
       })
-      //this.appSrv.showLoading()
       this.subCom = this.fs.getCommunity().subscribe(data => {
          this.community = data
          this.contactsFull = this.getContactsFull()
-         //this.appSrv.hideLoading()
       })
       console.log('subEvt: ', this.subEvt.closed)
       console.log('subCom: ', this.subCom.closed)

@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { SplashScreen } from '@ionic-native/splash-screen'
 import { StatusBar } from '@ionic-native/status-bar'
+import { Network } from '@ionic-native/network'
+
+import { HttpClientModule } from '@angular/common/http'
 
 import { CodePush } from '@ionic-native/code-push'
 
@@ -17,7 +20,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { FirebaseService } from '../shared/services/firebase.service'
 import { Firebase } from '@ionic-native/firebase'
 
-import { FwkServicesModule, ApplicationService, GlobalService, ProgressBarComponent } from 'fwk-services';
+import { FwkServicesModule, ApplicationService, GlobalService, NetworkService, ProgressBarComponent } from 'fwk-services';
 import { FwkAuthModule, AuthService } from 'fwk-auth'
 import { ENVIRONMENTS } from '../environments';
 
@@ -29,6 +32,7 @@ import { ENVIRONMENTS } from '../environments';
    ],
    imports: [
       FwkAuthModule,
+      HttpClientModule,
       FwkServicesModule,
       BrowserModule,
       BrowserAnimationsModule,
@@ -47,6 +51,8 @@ import { ENVIRONMENTS } from '../environments';
       AuthService,
       ApplicationService, 
       GlobalService,
+      Network,
+      NetworkService,
       FirebaseService,
       AngularFireAuth,
       CodePush,   

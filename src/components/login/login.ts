@@ -35,14 +35,13 @@ export class LoginPage implements OnInit, OnDestroy {
    }
    ngOnDestroy() {
       console.warn('LoginPage destroy')
-      this.subUsr.unsubscribe()
+      if (this.subUsr)
+         this.subUsr.unsubscribe()
       //this.subAuth.unsubscribe()
    }
    ngOnInit() {
       console.log('LoginPage init')
-      this.appSrv.showLoading()
       this.authSrv.verifyLoggedIn().subscribe(data => {
-         this.appSrv.hideLoading()
          if (data) {
             this.subUsr = this.fs.getUserById(this.getUid(data.email)).subscribe(usr => {
                if (usr != null)
@@ -97,7 +96,6 @@ export class LoginPage implements OnInit, OnDestroy {
       })
    }
    loginFacebook() {
-      // this.appSrv.showLoading()
       // this.authSrv.loginFacebook().then((data) => {
       //    const info = data.additionalUserInfo.profile
       //    const usr = {
