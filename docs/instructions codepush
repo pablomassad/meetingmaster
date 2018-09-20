@@ -7,8 +7,16 @@ code-push login
 
 code-push app add meetingmaster android cordova
 
+┌────────────┬──────────────────────────────────────────────────────────────────┐
+│ Name       │ Deployment Key                                                   │
+├────────────┼──────────────────────────────────────────────────────────────────┤
+│ Production │ WRRsXcPsGfQ4a_OZLOr3XRxyuWwQ3236c95e-519c-4873-a67d-fd25982456aa │
+├────────────┼──────────────────────────────────────────────────────────────────┤
+│ Staging    │ KGVa9KhctvnrrPebhCf90cGoZs0a3236c95e-519c-4873-a67d-fd25982456aa │
+└────────────┴──────────────────────────────────────────────────────────────────┘
+
 <platform name="android">
-<preference name="CodePushDeploymentKey" value="xxxxxxxxxxxxxxxx"/>
+<preference name="CodePushDeploymentKey" value="KGVa9KhctvnrrPebhCf90cGoZs0a3236c95e-519c-4873-a67d-fd25982456aa"/>
 </platform>
 
 ionic cordova plugin add cordova-plugin-code-push
